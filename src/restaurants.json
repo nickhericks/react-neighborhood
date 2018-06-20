@@ -1,0 +1,50 @@
+[
+    {
+    "id": "botanica",
+    "name": "Botanica",
+    "type": "Restaurant",
+    "lat": -25.959437,
+    "lng": 32.595876,
+    "address": "148, Rua Kibiriti Diwane, Maputo"
+ },
+  {
+    "id": "marna",
+    "name": "Marna Brasa",
+    "type": "Restaurant",
+    "lat": -25.948188,
+    "lng": 32.616826,
+    "address": "Avenida da Marginal, Maputo"
+ },
+  {
+    "id": "dhow",
+    "name": "Dhow Maputo",
+    "type": "Restaurant",
+    "lat": -25.981845,
+    "lng": 32.587764,
+    "address": "4, Rua da Marracuene, Maputo"
+ },
+  {
+    "id": "treehouse",
+    "name": "Tree House",
+    "type": "Restaurant",
+    "lat": -25.976285,
+    "lng": 32.59124,
+    "address": "Avenida Francisco Orlando Magumbwe, Maputo"
+ },
+  {
+    "id": "txhapo",
+    "name": "Txhapo Txhapo",
+    "type": "Restaurant",
+    "lat": -25.973433,
+    "lng": 32.592392,
+    "address": "Avenida Eduardo Mondlane, Maputo"
+ },
+  {
+    "id": "Sol",
+    "name": "Cafe Sol",
+    "type": "Restaurant",
+    "lat": -25.949252,
+    "lng": 32.60544,
+    "address": "Rua Beijo da Mulata, Maputo"
+ }
+]

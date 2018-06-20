@@ -4,13 +4,15 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 16px;
+
 }
 
 
 
 
 .App-logo {
-  height: 40px;
+  height: 30px;
   padding-left: 1.25rem;
 }
 
@@ -29,11 +31,6 @@ body {
   font-size: 1.5em;
   margin-bottom: 0;
 }
-
-.App-intro {
-  font-size: large;
-}
-
 
 
 
@@ -66,13 +63,12 @@ hr {
   border: none;
 }
 
-.map {
+#map {
   bottom:0px;
   height: 100%;
   left: 0;
   position: absolute;
   right: 0px;
-  z-index: -100
 }
 
 .side-bar {
@@ -90,22 +86,12 @@ hr {
 
 }
 
-#pano {
-  width: 200px;
-  height: 200px;
-}
 
-.text {
-  font-size: 12px;
-}
-
-#zoom-to-area-text {
+/* filter search text box */
+.search-input {
   width: 70%;
 }
 
-#zoom-to-area {
-  width: 24%;
-}
 
 
 @media screen and (max-width:500px) {
