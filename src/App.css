@@ -15,6 +15,7 @@ body {
 }
 
 .App-header {
+  z-index: 1000;
   background-color: #222;
   /* padding: 20px; */
   color: white;
@@ -65,25 +66,28 @@ hr {
   border: none;
 }
 
-#map {
+.map {
   bottom:0px;
   height: 100%;
   left: 0;
   position: absolute;
   right: 0px;
-  z-index: -10
+  z-index: -100
 }
 
 .side-bar {
+  z-index: 500;
   background: #fff;
-  border: 1px solid #999;
-  border-radius: 3px;
+  border-right: .25vh solid #999;
+  /* border-radius: 3px; */
   line-height: 35px;
-  padding: 10px;
+  padding: 1vh;
   text-align: left;
-  position:absolute;
-  width: 20%;
-  height: 70vh;
+  width: 20vw;
+  height: 93vh;
+  position: absolute;
+  /* left: -70%; */
+
 }
 
 #pano {
@@ -106,15 +110,7 @@ hr {
 
 @media screen and (max-width:500px) {
   .side-bar {
-    background: #fff;
-    border: 1px solid #999;
-    border-radius: 3px;
-    line-height: 35px;
-    padding: 10px;
-    text-align: left;
-    width: 60%;
-    height: 70vh;
-    position:absolute;
+    width: 60vw;
     /* TODO: WHEN HAMBURGER MENU IS CLICKED, CHANGE FROM -70% TO 0% */
     /* left: -70%; */
   }
