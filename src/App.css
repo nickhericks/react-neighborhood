@@ -120,7 +120,11 @@ hr {
   max-width: 241px;
   cursor: pointer;
   border-radius: .25rem;
+}
 
+.list-item-title {
+  font-weight: bold;
+  color: rgb(43,43,43);
 }
 
 .fbinfo {

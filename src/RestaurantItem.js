@@ -15,7 +15,7 @@ class RestaurantItem extends React.Component {
           onClick={this.props.openInfoWindow.bind(this, this.props.data)}
         >
 
-        {this.props.data.name}
+        <span className="list-item-title">{this.props.data.name}</span>
 
         <FacebookLikes
           key={this.props.data.id}
