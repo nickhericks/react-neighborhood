@@ -1,10 +1,12 @@
 import React from "react";
-import FacebookProvider, { Like } from 'react-facebook-sdk';
+import FacebookProvider, { Like } from 'react-facebook';
 import Example from './LikeButton.js';
 import './App.css';
 
 
 class RestaurantItem extends React.Component {
+
+
   /**
    * Render function of Place
    */
@@ -15,16 +17,18 @@ class RestaurantItem extends React.Component {
           role="button"
           className="place"
           tabIndex="0"
-          onKeyPress={this.props.openInfoWindow.bind(this, this.props.data.marker)}
-          onClick={this.props.openInfoWindow.bind(this, this.props.data.marker)}
+          onKeyPress={this.props.openInfoWindow.bind(this, this.props.data)}
+          onClick={this.props.openInfoWindow.bind(this, this.props.data)}
+          // onClick={this.props.toggleMenu.bind()}
         >
         {this.props.data.name}
-        </div>
-        {console.log([this.props.data])}
+
         <Example
           key={this.props.data.id}
           fburl={this.props.data.fburl}
         />
+        </div>
+
       </li>
     );
   }

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import RestaurantList from "./RestaurantList";
 // import PalmLogo from './palm-logo.png';
 import Logo from './logo.svg';
+import MenuImage from './menu.png';
 import './App.css';
 import Restaurants from './restaurants.json';
-import FacebookProvider, { Like } from 'react-facebook-sdk';
+import FacebookProvider, { Like } from 'react-facebook';
 import Example from './LikeButton.js';
 
 
@@ -93,7 +94,7 @@ class App extends Component {
       });
 
       marker.addListener("click", function() {
-        self.openInfoWindow(marker);
+        self.openInfoWindow(location);
       });
 
       location.marker = marker;
@@ -109,24 +110,22 @@ class App extends Component {
    * Open the infowindow for the marker
    * @param {object} location marker
    */
-  openInfoWindow(marker) {
+  openInfoWindow(data) {
     this.closeInfoWindow();
-    this.state.infowindow.open(this.state.map, marker);
-    marker.setAnimation(window.google.maps.Animation.BOUNCE);
-    this.setState({
-      prevmarker: marker
-    });
+    this.state.infowindow.open(this.state.map, data.marker);
+    data.marker.setAnimation(window.google.maps.Animation.BOUNCE);
+    this.setState({ prevmarker: data.marker });
     this.state.infowindow.setContent("Loading Data...");
-    this.state.map.setCenter(marker.getPosition());
+    this.state.map.setCenter(data.marker.getPosition());
     this.state.map.panBy(0, -200);
-    console.log(marker);
-
-    this.getMarkerInfo(marker);
-
-
+    // this.getMarkerInfo(data.marker);
+    this.state.infowindow.setContent(`
+      <div>
+        <h3>${data.name}</h3>
+        <h4>${data.address}</h4>
+      </div>
+      `);
   }
-
-
 
   /**
    * Retrive the location data from the foursquare api
@@ -158,7 +157,7 @@ class App extends Component {
 
         // Get the text in the response
         response.json().then(function(data) {
-          console.log(data);
+          // console.log(data);
 
           var location_data = data.response.venues[0];
           var place = `<h3>${location_data.name}</h3>`;
@@ -185,11 +184,7 @@ class App extends Component {
       });
   }
 
-  /**
-   * Close the info window previously opened
-   *
-   * @memberof App
-   */
+  // Close  info window
   closeInfoWindow() {
     if (this.state.prevmarker) {
       this.state.prevmarker.setAnimation(null);
@@ -200,13 +195,26 @@ class App extends Component {
     this.state.infowindow.close();
   }
 
+  toggleMenu() {
+    var menuBar = document.querySelector('.side-menu');
+    if(menuBar.style.left !== "-70%") {
+      menuBar.style.left = "-70%";
+    } else {
+      menuBar.style.left = "0";
+    }
+  }
 
   render() {
     return (
       <div className="App">
 
         <header className="App-header">
-          <img src={Logo} className="App-logo" alt="logo" />
+          <img
+            src={MenuImage}
+            className="App-logo"
+            alt="logo"
+            onClick={(click) => this.toggleMenu()}
+          />
           <h1 className="App-title">Maputo Restaurants</h1>
           <span></span>
         </header>
@@ -216,6 +224,7 @@ class App extends Component {
             key="8000"
             alllocations={this.state.alllocations}
             openInfoWindow={this.openInfoWindow}
+            toggleMenu={this.toggleMenu}
             closeInfoWindow={this.closeInfoWindow}
           />
           <div id="map" />

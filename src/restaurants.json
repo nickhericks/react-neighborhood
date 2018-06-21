@@ -7,17 +7,7 @@
     "lng": 32.595876,
     "address": "148, Rua Kibiriti Diwane, Maputo",
     "fburl": "http://www.facebook.com/105533049989334"
- }
- ,
-  {
-    "id": "marna",
-    "name": "Marna Brasa",
-    "type": "Restaurant",
-    "lat": -25.948188,
-    "lng": 32.616826,
-    "address": "Avenida da Marginal, Maputo",
-    "fburl": "http://www.facebook.com/637654649638054"
- },
+ } ,
   {
     "id": "dhow",
     "name": "Dhow Maputo",

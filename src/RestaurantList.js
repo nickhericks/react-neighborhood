@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import RestaurantItem from "./RestaurantItem";
-import FacebookProvider, { Like } from 'react-facebook-sdk';
+import FacebookProvider, { Like } from 'react-facebook';
 import Example from './LikeButton.js';
 
 
@@ -53,6 +53,7 @@ class RestaurantList extends Component {
           <RestaurantItem
             key={index}
             openInfoWindow={this.props.openInfoWindow.bind(this)}
+            toggleMenu={this.props.toggleMenu}
             data={listItem}
 
           />
