@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import RestaurantItem from "./RestaurantItem";
-import FacebookProvider, { Like } from 'react-facebook';
-import Example from './LikeButton.js';
 
-
+// React Component for listing restuarants in side bar menu
 class RestaurantList extends Component {
 
   state = {
@@ -14,15 +12,12 @@ class RestaurantList extends Component {
 
   filterLocations = this.filterLocations.bind(this);
 
-
-  /**
-   * Filter Locations based on user query
-   */
+   // Filter list of restaurants based on query
   filterLocations(event) {
     this.props.closeInfoWindow();
     const { value } = event.target;
     var locations = [];
-    this.props.alllocations.forEach(function(location) {
+    this.props.allLocations.forEach(function(location) {
       if (location.name.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
         location.marker.setVisible(true);
         locations.push(location);
@@ -30,7 +25,6 @@ class RestaurantList extends Component {
         location.marker.setVisible(false);
       }
     });
-
     this.setState({
       locations: locations,
       query: value
@@ -39,13 +33,10 @@ class RestaurantList extends Component {
 
   componentWillMount() {
     this.setState({
-      locations: this.props.alllocations
+      locations: this.props.allLocations
     });
   }
 
-  /**
-   * Render function of LocationList
-   */
   render() {
     var locationlist = this.state.locations.map(function(listItem, index) {
       return (
@@ -55,12 +46,8 @@ class RestaurantList extends Component {
             openInfoWindow={this.props.openInfoWindow.bind(this)}
             toggleMenu={this.props.toggleMenu}
             data={listItem}
-
           />
-
-
         </div>
-
       );
     }, this);
 
@@ -79,6 +66,10 @@ class RestaurantList extends Component {
         <ul className="side-list">
           {this.state.suggestions && locationlist}
         </ul>
+        <div
+          className="footer">
+          <span>Facebook data provided via Facebook API</span>
+        </div>
       </div>
     );
   }

@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import RestaurantList from "./RestaurantList";
-// import PalmLogo from './palm-logo.png';
-import Logo from './logo.svg';
+import Restaurants from './restaurants.json';
 import MenuImage from './menu.png';
 import './App.css';
-import Restaurants from './restaurants.json';
-import FacebookProvider, { Like } from 'react-facebook';
-import Example from './LikeButton.js';
 
-
+// Load Google map asynchronously
 function loadGoogleMap(src) {
   var ref = window.document.getElementsByTagName("script")[0];
   var script = window.document.createElement("script");
@@ -20,49 +16,42 @@ function loadGoogleMap(src) {
   ref.parentNode.insertBefore(script, ref);
 }
 
-
-
-
+// App React Component
 class App extends Component {
   state = {
-    alllocations: Restaurants,
+    allLocations: Restaurants,
     map: "",
     infowindow: "",
-    prevmarker: ""
+    previewMarker: ""
   }
 
-  // retain object instance when used in the function
+  // Retain object instance when used in function
   initMap = this.initMap.bind(this);
   openInfoWindow = this.openInfoWindow.bind(this);
   closeInfoWindow = this.closeInfoWindow.bind(this);
 
-
+  // Wait for App Component to load, then begin loading Google Map
   componentDidMount() {
-    // Connect the initMap() function within this class to the global window context,
-    // so Google Maps can invoke it
     window.initMap = this.initMap;
-    // Asynchronously load the Google Maps script, passing in the callback reference
     loadGoogleMap(
       "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places&key=AIzaSyB8u8SHJ767vZjqYAHapTSCLFDDwXVCt-E&callback=initMap"
     );
   }
 
-  /**
-   * Initialise the map once the google map script is loaded
-   */
+   //Initialize Google Map after script is loaded
   initMap() {
     var self = this;
 
-    var mapview = document.getElementById("map");
-    // mapview.style.height = window.innerHeight + "px";
-    var map = new window.google.maps.Map(mapview, {
-      center: { lat: -25.957060, lng: 32.574549 },
+    var mapContain = document.getElementById("map");
+    var map = new window.google.maps.Map(mapContain, {
+      center: { lat: -25.959551, lng: 32.588191 },
       zoom: 14,
       mapTypeControl: false
     });
 
     var InfoWindow = new window.google.maps.InfoWindow({});
 
+    // Close infowindow if close button is clicked
     window.google.maps.event.addListener(InfoWindow, "closeclick", function() {
       self.closeInfoWindow();
     });
@@ -72,18 +61,22 @@ class App extends Component {
       infowindow: InfoWindow
     });
 
+    // Center map on selected marker
     window.google.maps.event.addDomListener(window, "resize", function() {
       var center = map.getCenter();
       window.google.maps.event.trigger(map, "resize");
       self.state.map.setCenter(center);
     });
 
+    // Close infowindow if map is clicked
     window.google.maps.event.addListener(map, "click", function() {
       self.closeInfoWindow();
     });
 
-    var alllocations = [];
-    this.state.alllocations.forEach(function(location) {
+    var allLocations = [];
+
+    // Create map markers
+    this.state.allLocations.forEach(function(location) {
       var marker = new window.google.maps.Marker({
         position: new window.google.maps.LatLng(
           location.lat,
@@ -99,22 +92,19 @@ class App extends Component {
 
       location.marker = marker;
       location.display = true;
-      alllocations.push(location);
+      allLocations.push(location);
     });
     this.setState({
-      alllocations: alllocations
+      allLocations: allLocations
     });
   }
 
-  /**
-   * Open the infowindow for the marker
-   * @param {object} location marker
-   */
+  // Open info window
   openInfoWindow(data) {
     this.closeInfoWindow();
     this.state.infowindow.open(this.state.map, data.marker);
     data.marker.setAnimation(window.google.maps.Animation.BOUNCE);
-    this.setState({ prevmarker: data.marker });
+    this.setState({ previewMarker: data.marker });
     this.state.infowindow.setContent("Loading Data...");
     this.state.map.setCenter(data.marker.getPosition());
     this.state.map.panBy(0, -200);
@@ -122,85 +112,34 @@ class App extends Component {
     this.state.infowindow.setContent(`
       <div>
         <h3>${data.name}</h3>
-        <h4>${data.address}</h4>
+        <h4>${data.type}</h4>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+        <p><strong>Address:</strong> ${data.address}</p>
       </div>
       `);
   }
 
-  /**
-   * Retrive the location data from the foursquare api
-   */
-  getMarkerInfo(marker) {
-    var self = this;
-
-    // Add the api keys for foursquare
-    var clientId = "3PB1F0SFR1YGO3QOX3M4IP5V252NZ1MNDCSQBE3QRAOSM0DO";
-    var clientSecret = "QALQH0RVFJJ4ASGF1SOMNKUJNEFPM1MW01TS2DBIWVTBOG2C";
-
-    // Build the api endpoint
-    var url =
-      "https://api.foursquare.com/v2/venues/search?client_id=" +
-      clientId +
-      "&client_secret=" +
-      clientSecret +
-      "&v=20130815&ll=" +
-      marker.getPosition().lat() +
-      "," +
-      marker.getPosition().lng() +
-      "&limit=1";
-    fetch(url)
-      .then(function(response) {
-        if (response.status !== 200) {
-          self.state.infowindow.setContent("Sorry data can't be loaded");
-          return;
-        }
-
-        // Get the text in the response
-        response.json().then(function(data) {
-          // console.log(data);
-
-          var location_data = data.response.venues[0];
-          var place = `<h3>${location_data.name}</h3>`;
-          var fbfb = `<Example />`;
-          var street = `<p>${location_data.location.formattedAddress[0]}</p>`;
-          var contact = "";
-          if (location_data.contact.phone)
-            contact = `<p><small>${location_data.contact.phone}</small></p>`;
-          var checkinsCount =
-            "<b>Number of CheckIn: </b>" +
-            location_data.stats.checkinsCount +
-            "<br>";
-          var readMore =
-            '<a href="https://foursquare.com/v/' +
-            location_data.id +
-            '" target="_blank">Read More on <b>Foursquare Website</b></a>';
-          self.state.infowindow.setContent(
-            place + street + contact + checkinsCount + readMore + fbfb + `<Example />` + `this now`
-          );
-        });
-      })
-      .catch(function(err) {
-        self.state.infowindow.setContent("Sorry data can't be loaded");
-      });
-  }
-
   // Close  info window
   closeInfoWindow() {
-    if (this.state.prevmarker) {
-      this.state.prevmarker.setAnimation(null);
+    if (this.state.previewMarker) {
+      this.state.previewMarker.setAnimation(null);
     }
     this.setState({
-      prevmarker: ""
+      previewMarker: ""
     });
     this.state.infowindow.close();
   }
 
+  // Toggle side bar men
   toggleMenu() {
     var menuBar = document.querySelector('.side-menu');
-    if(menuBar.style.left !== "-70%") {
-      menuBar.style.left = "-70%";
+    var mapWidth = document.querySelector('#map');
+    if(menuBar.style.left !== "-100%") {
+      menuBar.style.left = "-100%";
+      mapWidth.style.left = "0";
     } else {
       menuBar.style.left = "0";
+      mapWidth.style.left = "268px";
     }
   }
 
@@ -222,7 +161,7 @@ class App extends Component {
         <div className="container">
           <RestaurantList
             key="8000"
-            alllocations={this.state.alllocations}
+            allLocations={this.state.allLocations}
             openInfoWindow={this.openInfoWindow}
             toggleMenu={this.toggleMenu}
             closeInfoWindow={this.closeInfoWindow}

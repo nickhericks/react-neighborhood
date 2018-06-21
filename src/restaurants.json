@@ -6,17 +6,99 @@
     "lat": -25.959437,
     "lng": 32.595876,
     "address": "148, Rua Kibiriti Diwane, Maputo",
+    "phone": "84 558 4558",
     "fburl": "http://www.facebook.com/105533049989334"
- } ,
+  },
+  {
+    "id": "Sol",
+    "name": "Cafe Sol",
+    "type": "Cafe",
+    "lat": -25.949252,
+    "lng": 32.60544,
+    "address": "Rua Beijo da Mulata, Maputo",
+    "phone": "82 223 3765",
+    "fburl": "http://www.facebook.com/1911398539110730"
+  },
+  {
+    "id": "ck",
+    "name": "CK Cafe",
+    "type": "Restaurant",
+    "lat": -25.959857,
+    "lng": 32.596452,
+    "address": "225, Rua de Fernão Lopes, Maputo",
+    "phone": "84 519 2131",
+    "fburl": "http://www.facebook.com/1718172138430868"
+  },
   {
     "id": "dhow",
     "name": "Dhow Maputo",
-    "type": "Restaurant",
+    "type": "Restaurant Bar",
     "lat": -25.981845,
     "lng": 32.587764,
     "address": "4, Rua da Marracuene, Maputo",
+    "phone": "84 322 2333",
     "fburl": "http://www.facebook.com/357489670953601"
- },
+  },
+  {
+    "id": "fishmonger",
+    "name": "Fishmonger",
+    "type": "Seafood Restaurant",
+    "lat": -25.977851,
+    "lng": 32.588480,
+    "address": "Rua Mateus Sansao Muthemba",
+    "phone": "84 522 8082",
+    "fburl": "http://www.facebook.com/124560504698600"
+  },
+  {
+    "id": "galaxy",
+    "name": "Galaxy",
+    "type": "Indian Restaurant",
+    "lat": -25.978329,
+    "lng": 32.589108,
+    "phone": "84 522 1202",
+    "address": "Rua Mateus Sansao Muthemba",
+    "fburl": "http://www.facebook.com/959416370841914"
+  },
+  {
+    "id": "moksha",
+    "name": "Moksha",
+    "type": "Indian Restaurant",
+    "lat": -25.971972,
+    "lng": 32.594834,
+    "address": "941, Avenida Julius Nyerere, Maputo",
+    "phone": "21 498 3333",
+    "fburl": "http://www.facebook.com/584935898240482"
+  },
+  {
+    "id": "tasca",
+    "name": "Nossa Tasca",
+    "type": "Portuguese Restaurant",
+    "lat": -25.977931,
+    "lng": 32.592568,
+    "address": "Av. Julius Nyerere, Maputo",
+    "phone": "84 450 6174",
+    "fburl": "http://www.facebook.com/757476287693600"
+  },
+  {
+    "id": "shawarma",
+    "name": "Shawarma Show",
+    "type": "Restaurant",
+    "lat": -25.972600,
+    "lng": 32.585307,
+    "address": "Av. 24 de Julho",
+    "phone": "84 100 2001",
+    "fburl": "http://www.facebook.com/1900705996870682"
+  },
+  {
+    "id": "spicy",
+    "name": "Spicy Thai",
+    "type": "Thai Restaurant",
+    "lat": -25.974696,
+    "lng": 32.593772,
+    "address": "657, Av. Julius Nyerere, Maputo",
+    "phone": "84 309 9993",
+    "fburl": "http://www.facebook.com/321375514711907"
+  },
   {
     "id": "treehouse",
     "name": "Tree House",
@@ -24,8 +106,9 @@
     "lat": -25.976285,
     "lng": 32.59124,
     "address": "Avenida Francisco Orlando Magumbwe, Maputo",
+    "phone": "82 109 9368",
     "fburl": "http://www.facebook.com/836763979731369"
- },
+  },
   {
     "id": "txhapo",
     "name": "Txhapo Txhapo",
@@ -33,15 +116,7 @@
     "lat": -25.973433,
     "lng": 32.592392,
     "address": "Avenida Eduardo Mondlane, Maputo",
+    "phone": "84 541 9820",
     "fburl": "http://www.facebook.com/271899822969583"
- },
-  {
-    "id": "Sol",
-    "name": "Cafe Sol",
-    "type": "Restaurant",
-    "lat": -25.949252,
-    "lng": 32.60544,
-    "address": "Rua Beijo da Mulata, Maputo",
-    "fburl": "http://www.facebook.com/1911398539110730"
- }
+  }
 ]

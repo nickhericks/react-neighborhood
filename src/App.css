@@ -5,38 +5,36 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-
-
-
+/* ---------- HEADER ---------- */
 .App-logo {
-  height: 5vh;
+  height: 1.5rem;
   padding-left: 1.25rem;
   z-index: 2000;
 }
 
 .App-header {
   z-index: 1000;
-  background-color: #222;
+  background-color: #456173;
   /* padding: 20px; */
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 5vh;
+  height: 3rem;
 }
-
 
 .App-title {
-  font-size: 3vh;
+  font-size: 1.5rem;
   margin-bottom: 0;
+  color: #f2f2f0;
 }
 
-
-
-
+/* ---------- MAIN ---------- */
 .container {
   height: 95vh;
   position: relative;
@@ -60,25 +58,28 @@ hr {
   border: none;
 }
 
+/* ---------- GOOGLE MAP ---------- */
 #map {
-  bottom:0px;
-  height: 100%;
-  left: 0;
+  top: 0;
+  /* bottom:0px; */
+  height: calc(100vh - 3rem);
+  left: 260px;
   position: absolute;
   right: 0px;
 }
 
+/* ---------- SIDE-BAR ---------- */
 .side-menu {
   z-index: 500;
-  background: grey;
-  border-right: .25vh solid #999;
+  background: #1b3c59;
+  /* border-right: .25vh solid #999; */
   /* border-radius: 3px; */
   line-height: 35px;
-  padding: 1vh;
+  /* padding: .5vh; */
   text-align: left;
-  /* width: 20vw; */
-  width: 250px;
-  height: 93vh;
+  width: 20vw;
+  min-width: 270px;
+  height: calc(100vh - 3rem);
   position: absolute;
   overflow-y: auto;
   left: 0;
@@ -88,46 +89,86 @@ hr {
   align-content: flex-start;
 }
 
-
-
 /* filter search text box */
 .search-input {
-  width: 90%;
-  height: 2rem;
-  font-size: 1rem;
+  width: 100%;
+  height: 2.5rem;
+  font-size: .75rem;
   padding-left: 10px;
+  margin: 0;
 }
 
+/* List of resturants */
 .side-list {
-  /* background-color: yellow; */
   list-style: none;
   padding-left: 0;
+  /* padding: 1rem; */
+  /* color: white; */
+  width: 250px;
 }
 
+/* Restaurant item in list */
 .side-item {
-  background-color: white;
+  background-color: #f2f2f0;
   padding: .5rem;
-  margin-bottom: .25rem;
+  margin: .5rem;
+  margin-left: .25rem;
+  margin-right: .25rem;
+  height: auto;
   max-height: 100px;
-  width: 241px;
+  width: 225px;
   max-width: 241px;
   cursor: pointer;
-}
+  border-radius: .25rem;
 
-.side-item:visited {
-  border: 4px yellow solid;
 }
 
 .fbinfo {
   height: 100px;
 }
 
+/* ---------- SCROLL BAR ---------- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(69,97,115,0.5);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,1);
+    -webkit-box-shadow: inset 0 0 6px rgba(69,97,115,0.5);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  /* position: absolute; */
+  /* bottom: 0px; */
+  z-index: 15000;
+  background-color: #456173;
+  color: #f2f2f0;
+  font-size: .75rem;
+  height: 2rem;
+  width: 270px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- ADJUST FOR SMALLER SCREENS ---------- */
 @media screen and (max-width:500px) {
+
   .side-menu {
-    /* width: 60vw; */
-    /* TODO: WHEN HAMBURGER MENU IS CLICKED, CHANGE FROM -70% TO 0% */
-    left: -70%;
+    left: -100%;
   }
 
-
+  #map {
+    left: 0;
+  }
 }

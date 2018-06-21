@@ -23,4 +23,6 @@ In the Neighborhood Map project, you will develop a single page application feat
 
 - This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 - The Google Maps API.
+- Third Party data using Facebook API to display number of Likes per restaurant and to provide Like and Share button functionality.
+- Color palette provided by [Color Hunt](https://colorhunt.co/palette/121096)
 - Additional code written by Nick Hericks.
