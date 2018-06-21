@@ -5,15 +5,18 @@
     "type": "Restaurant",
     "lat": -25.959437,
     "lng": 32.595876,
-    "address": "148, Rua Kibiriti Diwane, Maputo"
- },
+    "address": "148, Rua Kibiriti Diwane, Maputo",
+    "fburl": "http://www.facebook.com/105533049989334"
+ }
+ ,
   {
     "id": "marna",
     "name": "Marna Brasa",
     "type": "Restaurant",
     "lat": -25.948188,
     "lng": 32.616826,
-    "address": "Avenida da Marginal, Maputo"
+    "address": "Avenida da Marginal, Maputo",
+    "fburl": "http://www.facebook.com/637654649638054"
  },
   {
     "id": "dhow",
@@ -21,7 +24,8 @@
     "type": "Restaurant",
     "lat": -25.981845,
     "lng": 32.587764,
-    "address": "4, Rua da Marracuene, Maputo"
+    "address": "4, Rua da Marracuene, Maputo",
+    "fburl": "http://www.facebook.com/357489670953601"
  },
   {
     "id": "treehouse",
@@ -29,7 +33,8 @@
     "type": "Restaurant",
     "lat": -25.976285,
     "lng": 32.59124,
-    "address": "Avenida Francisco Orlando Magumbwe, Maputo"
+    "address": "Avenida Francisco Orlando Magumbwe, Maputo",
+    "fburl": "http://www.facebook.com/836763979731369"
  },
   {
     "id": "txhapo",
@@ -37,7 +42,8 @@
     "type": "Restaurant",
     "lat": -25.973433,
     "lng": 32.592392,
-    "address": "Avenida Eduardo Mondlane, Maputo"
+    "address": "Avenida Eduardo Mondlane, Maputo",
+    "fburl": "http://www.facebook.com/271899822969583"
  },
   {
     "id": "Sol",
@@ -45,6 +51,7 @@
     "type": "Restaurant",
     "lat": -25.949252,
     "lng": 32.60544,
-    "address": "Rua Beijo da Mulata, Maputo"
+    "address": "Rua Beijo da Mulata, Maputo",
+    "fburl": "http://www.facebook.com/1911398539110730"
  }
 ]

@@ -23,23 +23,18 @@ function loadGoogleMap(src) {
 
 
 class App extends Component {
-  /**
-   * Constructor
-   */
-  constructor(props) {
-    super(props);
-    this.state = {
-      alllocations: Restaurants,
-      map: "",
-      infowindow: "",
-      prevmarker: ""
-    };
-
-    // retain object instance when used in the function
-    this.initMap = this.initMap.bind(this);
-    this.openInfoWindow = this.openInfoWindow.bind(this);
-    this.closeInfoWindow = this.closeInfoWindow.bind(this);
+  state = {
+    alllocations: Restaurants,
+    map: "",
+    infowindow: "",
+    prevmarker: ""
   }
+
+  // retain object instance when used in the function
+  initMap = this.initMap.bind(this);
+  openInfoWindow = this.openInfoWindow.bind(this);
+  closeInfoWindow = this.closeInfoWindow.bind(this);
+
 
   componentDidMount() {
     // Connect the initMap() function within this class to the global window context,
@@ -126,7 +121,9 @@ class App extends Component {
     this.state.map.panBy(0, -200);
     console.log(marker);
 
-    // this.getMarkerInfo(marker);
+    this.getMarkerInfo(marker);
+
+
   }
 
 
@@ -165,6 +162,7 @@ class App extends Component {
 
           var location_data = data.response.venues[0];
           var place = `<h3>${location_data.name}</h3>`;
+          var fbfb = `<Example />`;
           var street = `<p>${location_data.location.formattedAddress[0]}</p>`;
           var contact = "";
           if (location_data.contact.phone)
@@ -178,7 +176,7 @@ class App extends Component {
             location_data.id +
             '" target="_blank">Read More on <b>Foursquare Website</b></a>';
           self.state.infowindow.setContent(
-            place + street + contact + checkinsCount + readMore
+            place + street + contact + checkinsCount + readMore + fbfb + `<Example />` + `this now`
           );
         });
       })
@@ -215,7 +213,7 @@ class App extends Component {
 
         <div className="container">
           <RestaurantList
-            key="1"
+            key="8000"
             alllocations={this.state.alllocations}
             openInfoWindow={this.openInfoWindow}
             closeInfoWindow={this.closeInfoWindow}

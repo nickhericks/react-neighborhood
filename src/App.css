@@ -71,9 +71,9 @@ hr {
   right: 0px;
 }
 
-.side-bar {
+.side-menu {
   z-index: 500;
-  background: #fff;
+  background: grey;
   border-right: .25vh solid #999;
   /* border-radius: 3px; */
   line-height: 35px;
@@ -92,10 +92,21 @@ hr {
   width: 70%;
 }
 
+.side-list {
+  /* background-color: yellow; */
+  list-style: none;
+  padding-left: 0;
+}
+
+.side-item {
+  background-color: white;
+  padding: .5rem;
+  margin-bottom: .25rem;
+}
 
 
 @media screen and (max-width:500px) {
-  .side-bar {
+  .side-menu {
     width: 60vw;
     /* TODO: WHEN HAMBURGER MENU IS CLICKED, CHANGE FROM -70% TO 0% */
     /* left: -70%; */

@@ -5,19 +5,15 @@ import Example from './LikeButton.js';
 
 
 class RestaurantList extends Component {
-  /**
-   * Constructor
-   */
-  constructor(props) {
-    super(props);
-    this.state = {
-      locations: "",
-      query: "",
-      suggestions: true
-    };
 
-    this.filterLocations = this.filterLocations.bind(this);
-  }
+  state = {
+    locations: "",
+    query: "",
+    suggestions: true
+  };
+
+  filterLocations = this.filterLocations.bind(this);
+
 
   /**
    * Filter Locations based on user query
@@ -53,17 +49,22 @@ class RestaurantList extends Component {
   render() {
     var locationlist = this.state.locations.map(function(listItem, index) {
       return (
-        <RestaurantItem
-          key={index}
-          openInfoWindow={this.props.openInfoWindow.bind(this)}
-          data={listItem}
-        />
+        <div key={index + 2000}>
+          <RestaurantItem
+            key={index}
+            openInfoWindow={this.props.openInfoWindow.bind(this)}
+            data={listItem}
+
+          />
+
+
+        </div>
 
       );
     }, this);
 
     return (
-      <div className="side-bar">
+      <div className="side-menu">
         <input
           role="search"
           aria-labelledby="filter"
@@ -74,10 +75,9 @@ class RestaurantList extends Component {
           value={this.state.query}
           onChange={this.filterLocations}
         />
-        <ul className="location-list">
+        <ul className="side-list">
           {this.state.suggestions && locationlist}
         </ul>
-        <Example />
       </div>
     );
   }
