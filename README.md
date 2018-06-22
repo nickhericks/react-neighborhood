@@ -9,9 +9,9 @@ Using your command line tool:
 * clone this git repository `git clone https://github.com/nickhericks/react-neighborhood.git` react-neighborhood
 * change to the application folder `cd react-neighborhood`
 * install all project dependencies `npm install`
-* start the development server `npm start`
-npm run build
-serve -s build
+* build the app for production `npm run build`
+* install static server `npm install -g serve`
+* serve project with static server `serve -s build`
 
 ## Project Overview
 
