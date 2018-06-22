@@ -152,9 +152,15 @@ class App extends Component {
             src={MenuImage}
             className="App-logo"
             alt="logo"
+            aria-label="Navigation menu"
+            tabIndex="0"
+            role="button"
             onClick={(click) => this.toggleMenu()}
           />
-          <h1 className="App-title">Maputo Restaurants</h1>
+          <h1
+            className="App-title"
+            >Maputo Restaurants
+          </h1>
           <span></span>
         </header>
 
@@ -166,7 +172,12 @@ class App extends Component {
             toggleMenu={this.toggleMenu}
             closeInfoWindow={this.closeInfoWindow}
           />
-          <div id="map" />
+          <div
+            id="map"
+            tabIndex="0"
+            role="application"
+            aria-label="Map with restaurants"
+          />
         </div>
       </div>
     );

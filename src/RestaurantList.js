@@ -31,7 +31,7 @@ class RestaurantList extends Component {
     });
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.setState({
       locations: this.props.allLocations
     });
@@ -40,14 +40,12 @@ class RestaurantList extends Component {
   render() {
     var locationlist = this.state.locations.map(function(listItem, index) {
       return (
-        <div key={index + 2000}>
-          <RestaurantItem
-            key={index}
-            openInfoWindow={this.props.openInfoWindow.bind(this)}
-            toggleMenu={this.props.toggleMenu}
-            data={listItem}
-          />
-        </div>
+        <RestaurantItem
+          key={index}
+          openInfoWindow={this.props.openInfoWindow.bind(this)}
+          toggleMenu={this.props.toggleMenu}
+          data={listItem}
+        />
       );
     }, this);
 

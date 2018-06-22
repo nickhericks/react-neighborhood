@@ -6,10 +6,12 @@ This project is part of Udacity's Front End Web Developer nanodegree program. De
 
 Using your command line tool:
 
-* clone this git repository `git clone https://github.com/nickhericks/react-myreads.git` react-neighborhood
+* clone this git repository `git clone https://github.com/nickhericks/react-neighborhood.git` react-neighborhood
 * change to the application folder `cd react-neighborhood`
 * install all project dependencies `npm install`
 * start the development server `npm start`
+npm run build
+serve -s build
 
 ## Project Overview
 
