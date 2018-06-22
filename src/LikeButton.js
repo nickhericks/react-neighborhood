@@ -10,13 +10,14 @@ export default class FacebookLikes extends Component {
         <Like
           href={this.props.fburl}
           colorScheme="light"
-          showFaces
-          share
+          // showFaces
+          // share
           // optionally display larger buttons only with counter
           // size="large"
           // layout="button_count"
           width="225px"
         />
+
       </FacebookProvider>
     );
   }

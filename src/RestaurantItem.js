@@ -1,19 +1,11 @@
 import React from "react";
 import FacebookLikes from './LikeButton.js';
 // import FbError from './FbError.js';
+import { Offline, Online } from 'react-detect-offline';
 import './App.css';
 
 // React component for each restaurant in list
 class RestaurantItem extends React.Component {
-
-  componentDidMount() {
-    // if (this.props.data !== prevProps.data) {
-    //   this.fetchData(this.props.data);
-    // }
-    var fbDiv = document.querySelector('.fb_iframe_widget');
-    console.log(fbDiv)
-  }
-
   render() {
     return (
       <li className="side-item">
@@ -24,13 +16,18 @@ class RestaurantItem extends React.Component {
           onKeyPress={this.props.openInfoWindow.bind(this, this.props.data)}
           onClick={this.props.openInfoWindow.bind(this, this.props.data)}
         >
-          <span className="list-item-title">{this.props.data.name}</span>
-          <FacebookLikes
-            key={this.props.data.id}
-            fburl={this.props.data.fburl}
-          />
+          <div className="list-item-title">{this.props.data.name}</div>
+          <Online>
+            <FacebookLikes
+              key={this.props.data.id}
+              fburl={this.props.data.fburl}
+            >
 
-
+            </FacebookLikes>
+          </Online>
+          <Offline>
+            <span className="fb-offline-warning">Facebook data not available offline</span>
+          </Offline>
         </div>
       </li>
     );

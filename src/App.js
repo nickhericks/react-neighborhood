@@ -172,12 +172,12 @@ class App extends Component {
             toggleMenu={this.toggleMenu}
             closeInfoWindow={this.closeInfoWindow}
           />
-          <div
-            id="map"
-            tabIndex="0"
-            role="application"
-            aria-label="Map with restaurants"
-          />
+            <div
+              id="map"
+              tabIndex="0"
+              role="application"
+              aria-label="Map with restaurants"
+            />
         </div>
       </div>
     );

@@ -68,6 +68,13 @@ hr {
   right: 0px;
 }
 
+.map-offline {
+  z-index: 6777271;
+  /* border: 2px black solid; */
+  text-align: center;
+  padding: 20%;
+}
+
 /* ---------- SIDE-BAR ---------- */
 .side-menu {
   z-index: 500;
@@ -115,7 +122,7 @@ hr {
   margin-left: .25rem;
   margin-right: .25rem;
   height: auto;
-  max-height: 100px;
+  max-height: 125px;
   width: 225px;
   max-width: 241px;
   cursor: pointer;
@@ -125,10 +132,29 @@ hr {
 .list-item-title {
   font-weight: bold;
   color: rgb(43,43,43);
+  /* color: white; */
+  background-color: #b8d8eb;
+  width: 221px;
+  margin-top: -10px;
+  /* padding-top: 10px; */
+  padding: 5px 10px;
+  margin-left: -8px;
+  margin-bottom: 15px;
+  border-radius: .25rem;
+
+    box-shadow: 0 5px 5px 0px rgba(46,61,73,0.6);
+    overflow: hidden;
+    -webkit-transition: box-shadow 2s; /* Safari */
+    transition: box-shadow .3s;
+
 }
 
 .fbinfo {
   height: 100px;
+}
+
+.fb-offline-warning {
+  font-size: .75rem;
 }
 
 /* ---------- SCROLL BAR ---------- */
