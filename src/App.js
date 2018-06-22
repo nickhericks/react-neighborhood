@@ -33,9 +33,15 @@ class App extends Component {
   // Wait for App Component to load, then begin loading Google Map
   componentDidMount() {
     window.initMap = this.initMap;
+    window.gm_authFailure = this.gm_authFailure;
     loadGoogleMap(
       "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places&key=AIzaSyB8u8SHJ767vZjqYAHapTSCLFDDwXVCt-E&callback=initMap"
     );
+  }
+
+  // Listen for authentication errors and provide alert to user
+  gm_authFailure() {
+    window.alert("Google Maps error!")
   }
 
    //Initialize Google Map after script is loaded
